@@ -1,153 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Garage Nation Events - Experience the best garage music events across the UK">
   <title>Garage Nation | Events</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
-<header class="hero">
-  <img class="hero-logo" src="crewz-one.png" alt="Crewz One Logo">
-  <div class="hero-content">
-    <h1>EVENTS</h1>
-    <p>Garage Music for A Garage Nation</p>
-  </div>
-</header>
+  <header class="hero" style="background-image: url('public/hero.jpeg');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="logo-container">
+        <img src="public/logo.png" alt="Garage Nation Logo" class="logo-image" data-aos="zoom-in">
+      </div>
+      <h1 class="hero-title" data-aos="zoom-in">EVENTS</h1>
+      <p class="hero-subtitle" data-aos="zoom-in">Garage Music for A Garage Nation</p>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow" data-aos="zoom-in"></div>
+    </div>
+  </header>
 
-<!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT -->
   <main>
-    <!-- SEARCH BAR -->
-    <section class="search-section" aria-label="Search and filter events">
-      <div class="search-bar">
-        <input type="text" id="search" placeholder="Search events..." aria-label="Search events">
-        <select id="filter" aria-label="Filter by location">
-          <option value="">All Events</option>
-          <option value="brighton">Brighton</option>
-          <option value="southampton">Southampton</option>
-          <option value="maidstone">Maidstone</option>
-        </select>
+    <!-- SEARCH SECTION -->
+    <section class="search-section" aria-label="Search and filter events" data-aos="zoom-in">
+      <div class="container">
+        <div class="search-bar">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input type="text" id="search" placeholder="Search events by name or location..."
+              aria-label="Search events">
+          </div>
+          <select id="filter" aria-label="Filter by location">
+            <option value="">All Locations</option>
+            <option value="brighton">Brighton</option>
+            <option value="southampton">Southampton</option>
+            <option value="maidstone">Maidstone</option>
+            <option value="st ives">St Ives</option>
+          </select>
+        </div>
+        <div class="results-info">
+          <span id="results-count"></span>
+        </div>
       </div>
     </section>
 
-   <!-- EVENT LIST -->
-<section id="events" class="event-list" aria-label="Event list">
-
-  <!-- EVENT CARD 1 -->
-  <div class="event-card">
-    <div class="event-date">
-      <div class="date">01</div>
-      <div class="day">SAT</div>
-    </div>
-    <img src="G:\varunn\3.jpg" alt="Event 1" class="event-image">
-    <div class="event-info">
-      <h3>Garage Beats Festival</h3>
-      <p>7:00 PM - 11:00 PM</p>
-    </div>
-    <div class="event-actions">
-      <button>Buy Ticket</button>
-      <button class="more">More Info</button>
-    </div>
-  </div>
-
-  <!-- EVENT CARD 2 -->
-  <div class="event-card">
-    <div class="event-date">
-      <div class="date">02</div>
-      <div class="day">SUN</div>
-    </div>
-    <img src="G:\varunn\4.jpg" alt="Event 2" class="event-image">
-    <div class="event-info">
-      <h3>Nightwave Sessions</h3>
-      <p>8:00 PM - 12:00 AM</p>
-    </div>
-    <div class="event-actions">
-      <button>Buy Ticket</button>
-      <button class="more">More Info</button>
-    </div>
-  </div>
-
-  <!-- EVENT CARD 3 -->
-  <div class="event-card">
-    <div class="event-date">
-      <div class="date">08</div>
-      <div class="day">FRI</div>
-    </div>
-    <img src="G:\varunn\1.jpg" alt="Event 3" class="event-image">
-    <div class="event-info">
-      <h3>Underground Nation</h3>
-      <p>6:30 PM - 10:30 PM</p>
-    </div>
-    <div class="event-actions">
-      <button>Buy Ticket</button>
-      <button class="more">More Info</button>
-    </div>
-  </div>
-
-  <!-- EVENT CARD 4 -->
-  <div class="event-card">
-    <div class="event-date">
-      <div class="date">12</div>
-      <div class="day">TUE</div>
-    </div>
-    <img src="G:\varunn\2.jpg" alt="Event 4" class="event-image">
-    <div class="event-info">
-      <h3>Garage Reloaded</h3>
-      <p>9:00 PM - 1:00 AM</p>
-    </div>
-    <div class="event-actions">
-      <button>Buy Ticket</button>
-      <button class="more">More Info</button>
-    </div>
-  </div>
-
-</section>
+    <!-- EVENT LIST -->
+    <section id="events" class="event-list container" aria-label="Event list" data-aos="zoom-in">
+      <!-- Events will be dynamically generated by JavaScript -->
+    </section>
 
     <!-- BANNER -->
-<aside class="banner" role="complementary">
-  <p>WAIT FOR NEW UPDATES</p>
-</aside>
-
+    <aside class="banner" role="complementary" data-aos="zoom-in" style="background-image: url('public/2.jpeg');
+    background-size: cover;
+    background-position:  center -180px ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    ">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2>Stay Tuned</h2>
+        <p>WAIT FOR NEW UPDATES</p>
+        <div class="banner-pulse"></div>
+      </div>
+    </aside>
 
     <!-- PAGINATION -->
-    <nav class="pagination" aria-label="Pagination">
-      <button id="prev" aria-label="Previous page">‹</button>
-      <button class="active" aria-current="page">1</button>
-      <button>2</button>
-      <button>3</button>
-      <button id="next" aria-label="Next page">›</button>
+    <nav class="pagination" aria-label="Pagination" data-aos="zoom-in">
+      <button id="prev" class="pagination-btn" aria-label="Previous page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="pagination-numbers" id="pagination-numbers"></div>
+      <button id="next" class="pagination-btn" aria-label="Next page">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
     </nav>
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-section">
-      <h3>Contact Us</h3>
-      <p><a href="mailto:support@garage-nation.com">support@garage-nation.com</a></p>
-    </div>
+  <footer data-aos="zoom-in">
+    <div class="footer-container container">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>
+          <a href="mailto:support@garage-nation.com" aria-label="Email support">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            support@garage-nation.com
+          </a>
+        </p>
+      </div>
 
-    <div class="footer-section">
-      <h3>Keep Up to Date</h3>
-      <form action="#" method="post">
-        <label for="email" class="visually-hidden">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
+      <div class="footer-section">
+        <h3>Keep Up to Date</h3>
+        <form id="newsletter-form" action="#" method="post" novalidate>
+          <label for="email" class="visually-hidden">Email address</label>
+          <div class="newsletter-input-group">
+            <input type="email" id="email" name="email" placeholder="Enter your email" required
+              aria-label="Email address">
+            <button type="submit" aria-label="Subscribe to newsletter">
+              Subscribe
+            </button>
+          </div>
+          <div class="newsletter-message" id="newsletter-message"></div>
+        </form>
+      </div>
 
-    <div class="footer-section">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#">Work with Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Work with Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Garage Nation. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
   <script src="script.js"></script>
 </body>
+
 </html>
-
-
