@@ -1,0 +1,332 @@
+/* ===== CUSTOM FONT ===== */
+@font-face {
+  font-family: 'Supercharge';
+  src: url("G:/varunn/SuperchargeStraight-nR87V.otf") format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ===== GENERAL ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Back to clean default font */
+  background-color: #0e0e10;
+  color: #fff;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  background: url("G:/varunn/newbackground.jpg") no-repeat center center/cover;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Dim overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Logo (top-left corner) */
+.hero-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 160px;
+  height: auto;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+.hero-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Hero text */
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+.hero-content h1 {
+  font-family: 'Supercharge', sans-serif; /* Rockstar header font */
+  font-size: 4rem;
+  letter-spacing: 4px;
+  color: #000;
+  text-shadow:
+    0 0 8px rgba(255, 204, 0, 0.7),
+    0 0 20px rgba(255, 204, 0, 0.8),
+    0 0 35px rgba(255, 204, 0, 1);
+}
+.hero-content p {
+  font-family: 'Inter', sans-serif; /* Normal text */
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* ===== SEARCH SECTION ===== */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  background-color: #111;
+  border-top: 2px solid #ffcc00;
+  border-bottom: 2px solid #ffcc00;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #1a1a1a;
+  padding: 16px 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.25);
+  width: 80%;
+  max-width: 900px;
+}
+
+.search-bar input,
+.search-bar select {
+  padding: 14px 18px;
+  border: 1px solid #ffcc00;
+  border-radius: 8px;
+  outline: none;
+  background: #f7f5f5;
+  color: #111;
+  font-size: 17px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.search-bar input {
+  width: 500px;
+}
+.search-bar select {
+  cursor: pointer;
+  min-width: 160px;
+  background-color: #111;
+  color: #ffcc00;
+}
+.search-bar input:focus,
+.search-bar select:focus {
+  box-shadow: 0 0 12px #ffcc00;
+  transform: scale(1.03);
+}
+
+/* ===== EVENT LIST ===== */
+.event-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 40px 20px;
+}
+
+/* ===== EVENT CARD ===== */
+.event-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #161616;
+  border-radius: 10px;
+  padding: 25px 35px;
+  width: 95%;
+  max-width: 950px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+.event-card:hover {
+  transform: scale(1.02);
+}
+
+/* ===== DATE BOX ===== */
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffcc00;
+  margin-right: 25px;
+  text-transform: uppercase;
+}
+.event-date .date {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.event-date .day {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* ===== EVENT IMAGE ===== */
+.event-image {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 30px;
+  border: 2px solid #ffcc00;
+}
+
+/* ===== EVENT INFO ===== */
+.event-info {
+  flex-grow: 1;
+  text-align: center;
+}
+.event-info h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  color: #ffcc00;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+.event-info p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* ===== BUTTONS ===== */
+.event-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.event-actions button {
+  background: #ffcc00;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+.event-actions button:hover {
+  background: #e6b800;
+}
+.event-actions .more {
+  background: transparent;
+  color: #ffcc00;
+  border: 1px solid #ffcc00;
+}
+.event-actions .more:hover {
+  background: #ffcc00;
+  color: #000;
+}
+
+/* ===== BANNER ===== */
+.banner {
+  position: relative;
+  background: url("G:/varunn/3.jpg") no-repeat center center/cover;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 40px auto;
+  width: 95%;
+  max-width: 950px;
+  overflow: hidden;
+}
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.banner p {
+  position: relative;
+  z-index: 2;
+  color: #ffcc00;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                    /* Tight spacing between buttons */
+  margin: 30px auto;
+  padding: 8px 16px;            /* Slimmer padding */
+  background: transparent;      /* No heavy background */
+  border-radius: 8px;
+  width: fit-content;
+}
+
+/* ===== PAGINATION BUTTONS ===== */
+.pagination button {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #ffcc00;
+  border-radius: 5px;
+  padding: 6px 12px;            /* Slimmer height */
+  cursor: pointer;
+  font-size: 0.9rem;            /* Slightly smaller text */
+  transition: all 0.2s ease;
+}
+
+.pagination button.active {
+  background-color: #ffcc00;
+  color: #000;
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.5);
+}
+
+.pagination button:hover {
+  background-color: #ffdb4d;
+  color: #000;
+}
+
+
+/* ===== FOOTER ===== */
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #111;
+  padding: 30px 50px;
+  color: #fff;
+}
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+footer input[type="email"] {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-right: 5px;
+}
+footer button {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+footer button:hover {
+  background-color: #ffdb4d;
+}
