@@ -77,6 +77,9 @@ function displayEvents(eventsToDisplay, page = 1) {
     eventContainer.appendChild(eventCard);
   });
 
+  // Refresh AOS after dynamically adding elements
+  AOS.refresh();
+
   updateResultsCount(eventsToDisplay.length, page);
   updatePagination(eventsToDisplay.length);
 }
@@ -87,11 +90,18 @@ function createEventCard(event, index) {
   card.classList.add("event-card");
   card.style.animationDelay = `${index * 0.1}s`;
 
+  // Add AOS animation to each card with staggered delay
+  card.setAttribute("data-aos", "fade-up");
+  card.setAttribute("data-aos-delay", `${index * 100}`);
+  card.setAttribute("data-aos-duration", "600");
+
   // Extract day abbreviation from date
   const dayAbbr = event.date.split(",")[0].toUpperCase();
 
   card.innerHTML = `
-    <div class="event-image-wrapper">
+    <div class="event-image-wrapper"
+    data-aos="zoom-in"
+    >
       <img src="${event.image}" alt="${event.title}" class="event-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%23141414%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23FFD700%22 font-family=%22Arial%22 font-size=%2224%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3E${event.title}%3C/text%3E%3C/svg%3E'">
       <div class="event-date-badge">
         <span class="date">${event.day}</span>
@@ -99,7 +109,9 @@ function createEventCard(event, index) {
       </div>
     </div>
     <div class="event-content">
-      <div class="event-info">
+      <div class="event-info"
+      data-aos="zoom-in"
+      >
         <h3>${event.title}</h3>
         <div class="event-date">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -110,14 +122,18 @@ function createEventCard(event, index) {
           </svg>
           ${event.date}
         </div>
-        <div class="event-location">
+        <div class="event-location"
+        data-aos="zoom-in"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
           ${event.location}
         </div>
-        <div class="event-time">
+        <div class="event-time"
+        data-aos="zoom-in"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 16 14"></polyline>
@@ -125,7 +141,9 @@ function createEventCard(event, index) {
           ${event.time}
         </div>
       </div>
-      <div class="event-actions">
+      <div class="event-actions"
+      data-aos="zoom-in"
+      >
         <button class="btn-primary" onclick="handleBuyTicket('${event.title}')">Buy Ticket</button>
         <button class="btn-secondary" onclick="handleMoreInfo('${event.title}')">More Info</button>
       </div>
@@ -173,6 +191,9 @@ function updatePagination(totalEvents) {
     const pageBtn = document.createElement("button");
     pageBtn.textContent = i;
     pageBtn.classList.toggle("active", i === currentPage);
+    pageBtn.setAttribute("data-aos", "fade-in");
+    pageBtn.setAttribute("data-aos-delay", `${(i - startPage) * 50}`);
+    pageBtn.setAttribute("data-aos-duration", "300");
     pageBtn.addEventListener("click", () => {
       currentPage = i;
       displayEvents(filteredEvents, currentPage);
@@ -180,6 +201,9 @@ function updatePagination(totalEvents) {
     });
     paginationNumbers.appendChild(pageBtn);
   }
+
+  // Refresh AOS for pagination buttons
+  AOS.refresh();
 
   // Next button
   nextBtn.disabled = currentPage === totalPages;
@@ -281,6 +305,56 @@ nextBtn.addEventListener("click", () => {
 searchInput.addEventListener("input", filterEvents);
 filterSelect.addEventListener("change", filterEvents);
 
+// Parallax Effect for Banner
+function initParallax() {
+  const banner = document.querySelector(".banner");
+  const bannerBackground = document.querySelector(".banner-background");
+
+  if (!banner || !bannerBackground) return;
+
+  function updateParallax() {
+    const rect = banner.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Check if banner is in viewport
+    if (rect.bottom < 0 || rect.top > windowHeight) {
+      return;
+    }
+
+    // Calculate scroll progress (0 when banner top is at viewport bottom, 1 when banner bottom is at viewport top)
+    const scrollProgress =
+      (windowHeight - rect.top) / (windowHeight + rect.height);
+
+    // Parallax speed factor (adjust this value to change the parallax intensity)
+    const parallaxSpeed = 0.5;
+
+    // Calculate transform value
+    const translateY = scrollProgress * 100 * parallaxSpeed;
+
+    // Apply transform
+    bannerBackground.style.transform = `translateY(${translateY}px)`;
+  }
+
+  // Use requestAnimationFrame for smooth performance
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  // Update on scroll and resize
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", updateParallax);
+
+  // Initial update
+  updateParallax();
+}
+
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
   displayEvents(events, currentPage);
@@ -291,6 +365,9 @@ document.addEventListener("DOMContentLoaded", () => {
       behavior: "smooth",
     });
   });
+
+  // Initialize parallax effect
+  initParallax();
 });
 
 // Keyboard Navigation
